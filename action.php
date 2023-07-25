@@ -5,8 +5,9 @@ $arg1 = $_GET["arg1"];
 $arg2 = $_GET["arg2"];
 echo "Performing action " . $action . " with arguments " . $arg1 . " and " . $arg2;
 
-switch ($action) {
+switch ($action) { 
     case "help":
+        echo "help shows list of commands!<br>Logout - Logs out of the terminal.<br>Read - Reads file.<br>Append - Adds to a file.<br>Write - Overrides the file then writes to it.<br>Erase - Clears a file.<br>Clear - Removes previous output.<br>Make - Makes a file.<br>Remove - Removes a file.<br>Change - Changes directory to a folder.<br>Move - Moves a file from one location to another.<br>Upload - Uploads a file for storage or editing.";
         break;
     case "read":
         break;
@@ -27,6 +28,7 @@ switch ($action) {
     case "move":
         break;
     case "credits":
+        echo "SQL and Server Implementaion - Simon<br>Programming - Caden<br>Graphics - Todd";
         break;
     case "logout":
         header("Location: ./index.html");
