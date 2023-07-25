@@ -19,9 +19,13 @@ if ($conn->connect_error) {
   echo ("<br> Connection failed: " . $conn->connect_error);
   echo ("<br> Redirecting to login...");
   sleep(1);
+  header("Location: ./index.html");
 
 } else {
   echo "<br> Connected successfully";
+  echo ("<br> Redirecting to terminal...");
+  sleep(3);
+  header("Location: ./terminal.html");
 }
 ?>
 
