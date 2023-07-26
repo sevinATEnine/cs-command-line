@@ -1,14 +1,29 @@
+<!DOCTYPE html>
 <head>
-
+    <title>CST Login</title>
 </head>
 <body>
-    <center>
         <h1>Login</h1>
-        <br><br>
-        <form action="./form.php" target="_self" method="post">
-            Username <input id="username" placeholder="Username" name="username">
-            Password <input id="password" placeholder="Username" name="password">
-            <input type="submit">
-        </form>
-    </center>
+            Username <input id="username" placeholder="Username" id="username"type="username"><br/>
+            Password <input id="password" placeholder="Password" id="password"type="password"><br/>
+            <button id="login"onclick="signin();">Sign in</button>
+    <script>
+        var password = null;
+        var username = null;
+        let users = [
+            "c@d3N","$|m0n"
+        ];
+        function signin() {
+           password = document.getElementById("password").value;
+           username = document.getElementById("username").value;
+           if (users.includes(username)) {
+            location.replace("./terminal.html")
+           }
+           else {
+               alert("Incorrect. Please try again.")
+               password = "";
+               username = ";"
+           }
+        }
+    </script>
 </body>
