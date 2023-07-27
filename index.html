@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <head>
     <title>CST Login</title>
+    <style>
+        input {
+            width:50%;
+            margin-left:25%;
+            margin-bottom:3px;
+            border-radius:5px;
+            height:20px;
+        }
+        button {
+            width:30%;
+            margin-left:35%;
+            height:30px;
+            background-color:blue;
+            border-radius:5px;
+            color:white;
+            cursor:pointer;
+            padding:5px;
+        }
+    </style>
 </head>
 <body>
-        <h1>Login</h1>
-            Username <input id="username" placeholder="Username" id="username"type="username"><br/>
-            Password <input id="password" placeholder="Password" id="password"type="password"><br/>
+        <h1>Login to CST</h1>
+            <input id="username" placeholder="Username" id="username"type="username"><br/>
+            <input id="password" placeholder="Password" id="password"type="password"><br/>
             <button id="login"onclick="signin();">Sign in</button>
+            <div style="
+            background-color:#00ee0080;
+            text-align:center;
+            border:1px solid green;
+            display:none;
+            margin-top:2px;
+            "id="success">
+                <p>Success! Head over to the command line.<br/>Note: You will no longer have to login from this device again unless you clear your cache and/or localStorage data.</p>
+            </div>
+            <div style="
+            background-color:#ee000080;
+            text-align:center;
+            border:1px solid red;
+            display:none;
+            margin-top:2px;
+            "id="incorrect">
+                <p>Success! Head over to the command line.<br/>Note: You will no longer have to login from this device again unless you clear your cache and/or localStorage data.</p>
+            </div>
     <script>
         var password = null;
         var username = null;
@@ -17,15 +54,18 @@
             "Dev","Dev"
         ]
         function signin() {
-           password = document.getElementById("password").value;
-           username = document.getElementById("username").value;
-           if (users.includes(username) && passwords.includes(password)) {
-            location.replace("./terminal.html")
+           password = document.getElementById("password");
+           username = document.getElementById("username");
+           if (users.includes(username.value) && passwords.includes(password.value)) {
+            localStorage.permittedTerminalCST = true;
+            document.getElementById("success").style.display = "block";
+            document.getElementById("incorrect").style.display = "none";
+            document.getElementsByTagName("button")[0].onclick = "";
            }
            else {
-               alert("Incorrect. Please try again.")
-               password = "";
-               username = ";"
+               document.getElementById("incorrect").style.display = "block";
+               password.value = "";
+               username.value = "";
            }
         }
     </script>
