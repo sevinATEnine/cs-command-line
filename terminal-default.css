@@ -1,0 +1,7 @@
+input {
+  width:80%;
+  overflow-x:visible;
+}
+body {
+  overflow:auto;
+}

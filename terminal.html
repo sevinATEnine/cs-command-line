@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+  <link rel="stylesheet"href="terminal-default.css"/>
+  <title>CST Terminal-Web</title>
 </head>
-<body>
-        
+<body id="body">
+  <p id="previous">Welcome to CST open source terminal.<br>Version: 1.0.7.27.2023</p>
+  <span id="prompt">--></span>
+  
 </body>
+<script>
+  if (localStorage.permittedTerminalCST != true)  {
+    document.getElementById("body").style.display = "none";
+  }
+</script>
 </html>

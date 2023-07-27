@@ -55,9 +55,9 @@
             "GUesT_1.0":"GU35T_D3V3L0P3R"
         }
         function signin() {
-            alert(localStorage.userTerminalCST)
            password = document.getElementById("password");
            username = document.getElementById("username");
+           localStorage.permittedTerminalCST = true;
            if (users[username.value] == password.value) {
             localStorage.permittedTerminalCST = true;
             localStorage.userTerminalCST = username.value;
