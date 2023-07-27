@@ -13,10 +13,13 @@
         let users = [
             "c@d3N","$|m0n"
         ];
+        let passwords = [
+            "Dev","Dev"
+        ]
         function signin() {
            password = document.getElementById("password").value;
            username = document.getElementById("username").value;
-           if (users.includes(username)) {
+           if (users.includes(username) && passwords.includes(password)) {
             location.replace("./terminal.html")
            }
            else {
