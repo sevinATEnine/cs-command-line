@@ -7,3 +7,6 @@ input {
 body {
   overflow:auto;
 }
+span {
+  max-width:25%
+}
