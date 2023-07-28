@@ -6,14 +6,23 @@
   </head>
   <body id="body">
     <div id="previous">
-      <p>Welcome to CST open source terminal.<br/>Version: 1.0.7.27.2023</p>
+      <p>//Welcome to CST open source terminal.<br/>//Version: 1.0.7.27.2023</p>
     </div>
-    <span id="prompt">--></span><input type="text"></input>
+    <span id="prompt"></span><input type="text"></input>
     <script>
+      let names = {
+        "c@d3N":"ThatGuyOverThere",
+        "$|m0n":"TacoMan",
+        "GUesT_1.0":"guest"
+      }
       var permitted = window.localStorage.getItem('permittedTerminalCST');
       if (permitted !== 'affirmed') {
         document.getElementById('body').style.display = 'none';
+        alert("Sorry, but you do not have permission to use the cst terminal. Please use the sign-in on our home page to gain access.");
+      }else {
+        document.getElementById("prompt").textContent = "CSTTERMINAL/user:"+names[localStorage.getItem("userTerminalCST")]+"-->";
       }
+
     </script>
   </body>
 </html>

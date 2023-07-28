@@ -79,7 +79,7 @@
       username = document.getElementById('username');
       if (users[username.value] == password.value) {
         localStorage.setItem('permittedTerminalCST', 'affirmed');
-        window.localStorage.userTerminalCST = username.value;
+        localStorage.setItem("userTerminalCST", username.value);
         document.getElementById('success').style.display = 'block';
         document.getElementById('incorrect').style.display = 'none';
         document.getElementsByTagName('button')[0].onclick = '';
