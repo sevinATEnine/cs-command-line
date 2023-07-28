@@ -1,75 +1,94 @@
 <!DOCTYPE html>
 <head>
-    <title>CST Login</title>
-    <style>
-        input {
-            width:50%;
-            margin-left:25%;
-            margin-bottom:3px;
-            border-radius:5px;
-            height:20px;
-            background:white;
-        }
-        button {
-            width:30%;
-            margin-left:35%;
-            height:30px;
-            background-color:blue;
-            border-radius:5px;
-            color:white;
-            cursor:pointer;
-            padding:5px;
-            border:none;
-        }
-    </style>
+  <title>CST Login</title>
+  <style>
+    input {
+      width: 50%;
+      margin-left: 25%;
+      margin-bottom: 3px;
+      border-radius: 5px;
+      height: 20px;
+      background: white;
+    }
+    button {
+      width: 30%;
+      margin-left: 35%;
+      height: 30px;
+      background-color: blue;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      padding: 5px;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-        <h1>Login to CST</h1>
-            <input id="username" placeholder="Username" id="username"type="username"><br/>
-            <input id="password" placeholder="Password" id="password"type="password"><br/>
-            <button id="login"onclick="signin();">Sign in</button>
-            <div style="
-            background-color:#00ee0080;
-            text-align:center;
-            border:1px solid green;
-            display:none;
-            margin-top:2px;
-            "id="success">
-                <p>Success! Head over to the command line.<br/>Note: You will no longer have to login from this device again unless you clear your cache and/or localStorage data.</p>
-            </div>
-            <div style="
-            background-color:#ee000080;
-            text-align:center;
-            border:1px solid red;
-            display:none;
-            margin-top:2px;
-            "id="incorrect">
-                <p>Incorrect username and/or password<br/>Please try again.</p>
-            </div>
-    <script>
-        var password = null;
-        var username = null;
-        let users = {
-            "c@d3N":"(0d3r_4_L1FE",
-            "$|m0n":"Dev",
-            "GUesT_1.0":"GU35T_D3V3L0P3R"
-        }
-        function signin() {
-           password = document.getElementById("password");
-           username = document.getElementById("username");
-           localStorage.permittedTerminalCST = true;
-           if (users[username.value] == password.value) {
-            localStorage.permittedTerminalCST = true;
-            localStorage.userTerminalCST = username.value;
-            document.getElementById("success").style.display = "block";
-            document.getElementById("incorrect").style.display = "none";
-            document.getElementsByTagName("button")[0].onclick = "";
-           }
-           else {
-               document.getElementById("incorrect").style.display = "block";
-               password.value = "";
-               username.value = "";
-           }
-        }
-    </script>
+  <h1>Login to CST</h1>
+  <input
+    id="username"
+    placeholder="Username"
+    id="username"
+    type="username"
+  /><br />
+  <input
+    id="password"
+    placeholder="Password"
+    id="password"
+    type="password"
+  /><br />
+  <button id="login" onclick="signin();">Sign in</button>
+  <div
+    style="
+      background-color: #00ee0080;
+      text-align: center;
+      border: 1px solid green;
+      display: none;
+      margin-top: 2px;
+    "
+    id="success"
+  >
+    <p>
+      Success! Head over to the command line.<br />Note: You should no longer
+      have to login from this device again unless you clear your cache and/or
+      localStorage data.
+    </p>
+  </div>
+  <div
+    style="
+      background-color: #ee000080;
+      text-align: center;
+      border: 1px solid red;
+      display: none;
+      margin-top: 2px;
+    "
+    id="incorrect"
+  >
+    <p>Incorrect username and/or password<br />Please try again.</p>
+  </div>
+  <script>
+    var password = null;
+    var username = null;
+    let users = {
+      'c@d3N': '(0d3r_4_L1FE',
+      '$|m0n': 'Dev',
+      'GUesT_1.0': 'GU35T_D3V3L0P3R',
+    };
+    function signin() {
+      password = document.getElementById('password');
+      username = document.getElementById('username');
+      if (users[username.value] == password.value) {
+        localStorage.setItem('permittedTerminalCST', 'affirmed');
+        window.localStorage.userTerminalCST = username.value;
+        document.getElementById('success').style.display = 'block';
+        document.getElementById('incorrect').style.display = 'none';
+        document.getElementsByTagName('button')[0].onclick = '';
+      } else {
+        document.getElementById('incorrect').style.display = 'block';
+        password.value = '';
+        username.value = '';
+        localStorage.setItem('permittedTerminalCST', 'denied');
+      }
+    }
+  </script>
 </body>
