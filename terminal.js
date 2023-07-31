@@ -49,6 +49,11 @@ function doCommand() {
     case "//": {
       break;
     }//comment in CST, returns no output
+
+    case "kill": {
+      location.replace('about:blank');
+      break;
+    }
     default: {
       output.innerHTML = "Error 01: Invalid command";
       output.className = "error";
