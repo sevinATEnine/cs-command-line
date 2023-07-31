@@ -2,7 +2,8 @@ let names = {
   "c@d3N":"ThatGuyOverThere",
   "$|m0n":"TacoMan",
   "70|)|)":"yes",
-  "GUesT_1.0":"guest"
+  "GUesT_1.0":"guest",
+  "$@wy3|-":"Sawyer",
 }//basic name definitions
 
 var permitted = window.sessionStorage.getItem('permittedTerminalCST');
