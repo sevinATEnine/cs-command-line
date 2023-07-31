@@ -23,7 +23,7 @@ function doCommand() {
   cmdSplit = command.value.split(" ");
   switch (cmdSplit[0]) {
     case "help": {
-      output.innerHTML = "<ul><li>help: Shows list of basic commands<li>docs: Shows all commands<li>Credits: Shows credits<li>quit or exit: Logs out of CST</ul>";
+      output.innerHTML = "<ul><li>help: Shows list of basic commands<li>docs: Shows all commands<li>credits: Shows credits<li>quit or exit: Logs out of CST</ul>";
       output.className = "output";
       break;
     }
