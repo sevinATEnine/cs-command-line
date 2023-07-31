@@ -63,6 +63,10 @@ function doCommand() {
       output.className = "output";
       break;
     }
+    case "admin": {
+      output.innerHTML="<img src='./rickroll.gif'>";
+      break;
+    }
     default: {
       output.innerHTML = "Error 01: Invalid command";
       output.className = "error";
