@@ -1,6 +1,7 @@
 let names = {
   "c@d3N":"ThatGuyOverThere",
   "$|m0n":"TacoMan",
+  "70|)|)":"yes",
   "GUesT_1.0":"guest"
 }//basic name definitions
 
