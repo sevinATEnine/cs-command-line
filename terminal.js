@@ -51,7 +51,7 @@ function doCommand() {
     }//comment in CST, returns no output
 
     case "kill": {
-      location.replace('about:blank');
+      window.close();
       break;
     }
     default: {
