@@ -4,47 +4,71 @@ let names = {
   "GUesT_1.0":"guest"
 }//basic name definitions
 
-var permitted = window.localStorage.getItem('permittedTerminalCST');
+var permitted = window.sessionStorage.getItem('permittedTerminalCST');
 if (permitted != 'affirmed') {
   document.getElementById('body').style.display = 'none';
   alert("Sorry, but you do not have permission to use the cst terminal. Please use the sign-in on our home page to gain access.");
 }else {
-  document.getElementById("prompt").textContent = "CST/"+names[localStorage.getItem("userTerminalCST")]+"-->";
+  document.getElementById("prompt").textContent = "CST/"+names[sessionStorage.getItem("userTerminalCST")]+"-->";
 }//Access granted? Time to find out!
 
 var command = document.getElementById("command");
-var previous = document.getElementById("previous");
+var prev = document.getElementById("previous");
+var cmdSplit = null;
 //Just some DOM nodes
 
-function doCommand(action) {
-  //switch statement goes here later, but I don't have time to work on it now.
-
-  command.value = "";
-  const add = document.createElement("li");
-  switch (action.toLowerCase()) {
-    case "help":
-      add.innerHTML = "help - outputs list of commands<br>crosh - opens chrosh (chrome-untrusted://crosh/)<br>telehack - opens telekack terminal (telehack.com)<br>bash - opens bash terminal (chrome-untrusted://terminal/)"
+function doCommand() {
+  const output = document.createElement("li");
+  cmdSplit = command.value.split(" ");
+  switch (cmdSplit[0]) {
+    case "help": {
+      output.innerHTML = "<ul><li>help: Shows list of basic commands<li>docs: Shows all commands<li>Credits: Shows credits<li>quit or exit: Logs out of CST</ul>";
+      output.className = "output";
       break;
-    case "":
-      add.innerHTML="";
+    }
+    case "quit": {
+      location.replace("./index.html");
+      sessionStorage.setItem("permittedTerminalCST","loggedOut");
       break;
-    default:
-      add.innerHTML = "Invalid command"
+    }
+    case "credits": {
+      output.innerHTML = "<ul><li>Simon & Caden: Programming<li>Todd: Graphics</ul>";
+      output.className = "output"
       break;
+    }
+    case "clear": {
+      prev.innerHTML = "";
+      output.innerHTML = "Command history cleared";
+      output.className = "output";
+      break;
+    }
+    case "exit": {
+      location.replace("./index.html");
+      break;
+    }
+    case "//": {
+      break;
+    }//comment in CST, returns no output
+    default: {
+      output.innerHTML = "Error 01: Invalid command";
+      output.className = "error";
+    }
   }
-
-  previous.appendChild(add);
-
-}
+  prev.appendChild(output);
+  command.value = "";
+};
 
 const node = document.getElementById("command");
-node.addEventListener("keyup", function(event) {
-    if (event.key === "Enter") {
-      prev = document.getElementById("previous");
+node.addEventListener("keydown", function(event) {
+    if (event.key == "Enter") {
       command = document.getElementById("command");
       const add = document.createElement("li");
-      add.textContent = ("CST/"+names[localStorage.getItem("userTerminalCST")]+"-->"+command.value.toLowerCase());
+      add.textContent = ("CST/"+names[sessionStorage.getItem("userTerminalCST")]+"-->"+command.value);
+      add.className = "add";
+      if(command.value.split(" ")[0]=="//") {
+        add.className = "comment"
+      }
       prev.appendChild(add);
-      doCommand(command.value);
+      doCommand();
     }
 });
