@@ -50,8 +50,8 @@
   >
     <p>
       Success! Head over to the command line.<br />Note: You should no longer
-      have to login from this device again unless you clear your cache and/or
-      localStorage data.
+      have to login from this device again unless you clear your cache, restart/logout of this device, and/or
+      clear sessionStorage data.
     </p>
   </div>
   <div
@@ -78,17 +78,16 @@
       password = document.getElementById('password');
       username = document.getElementById('username');
       if (users[username.value] == password.value) {
-        localStorage.setItem('permittedTerminalCST', 'affirmed');
-        localStorage.setItem("userTerminalCST", username.value);
+        sessionStorage.setItem('permittedTerminalCST', 'affirmed');
+        sessionStorage.setItem("userTerminalCST", username.value);
         document.getElementById('success').style.display = 'block';
         document.getElementById('incorrect').style.display = 'none';
         document.getElementsByTagName('button')[0].onclick = '';
-        location.href = "./terminal.html";
       } else {
         document.getElementById('incorrect').style.display = 'block';
         password.value = '';
         username.value = '';
-        localStorage.setItem('permittedTerminalCST', 'denied');
+        sessionStorage.setItem('permittedTerminalCST', 'denied');
       }
     }
   </script>
