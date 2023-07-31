@@ -1,5 +1,5 @@
 input {
-  width:80%;
+  width:80vw;
   overflow-x:visible;
   border:none;
   outline:none;
@@ -10,6 +10,18 @@ body {
 span {
   max-width:25%
 }
-#previous {
+ul {
   list-style-type:none;
+}
+.error {
+  color:red;
+}
+.output {
+  color:blue;
+}
+.add {
+  color:blueviolet;
+}
+.comment {
+  color:green;
 }
