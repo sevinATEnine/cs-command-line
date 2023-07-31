@@ -24,11 +24,7 @@ function doCommand() {
   cmdSplit = command.value.split(" ");
   switch (cmdSplit[0]) {
     case "help": {
-<<<<<<< Updated upstream
       output.innerHTML = "<ul><li>help: Shows list of basic commands<li>docs: Shows all commands<li>credits: Shows credits<li>quit or exit: Logs out of CST<li>kill: Kills the terminal and forwards to an empty page<li>clear: CLears the terminal<li>admin: Enters the root user</ul>";
-=======
-      output.innerHTML = "<ul><li>help: Shows list of basic commands<li>docs: Shows all commands<li>credits: Shows credits<li>quit or exit: Logs out of CST<li>kill: Kills the terminal and forwards to an empty page<li>clear: Clears the terminal</ul>";
->>>>>>> Stashed changes
       output.className = "output";
       break;
     }
