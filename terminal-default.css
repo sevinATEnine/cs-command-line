@@ -10,3 +10,6 @@ body {
 span {
   max-width:25%
 }
+#previous {
+  list-style-type:none;
+}
