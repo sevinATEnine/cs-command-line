@@ -25,9 +25,9 @@ const node = document.getElementById("command");
 node.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
       prev = document.getElementById("previous");
-      commandPrompt = document.getElementById("command").textContent;
+      commandPrompt = document.getElementById("command");
       const add = document.createElement("li");
-      add.innerText = ("CST/"+names[localStorage.getItem("userTerminalCST")]+"-->"+commandPrompt.value);
+      add.textContent = ("CST/"+names[localStorage.getItem("userTerminalCST")]+"-->"+commandPrompt.value);
       prev.appendChild(add);
       doCommand();
     }
