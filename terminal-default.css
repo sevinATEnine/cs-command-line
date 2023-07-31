@@ -3,25 +3,34 @@ input {
   overflow-x:visible;
   border:none;
   outline:none;
+  font-size: medium;
 }
 body {
   overflow:auto;
+  background-color: black;
+  color: green;
+  font-size: medium;
+
 }
+
+input {
+  background-color: black;
+}
+
+p,h1,h2,h3,h4,h5,h6,li,ul,input {
+  color: green;
+  font-size: medium;
+
+}
+
 span {
   max-width:25%
 }
 ul {
   list-style-type:none;
 }
-.error {
-  color:red;
-}
-.output {
-  color:blue;
-}
-.add {
-  color:blueviolet;
-}
-.comment {
-  color:green;
+
+
+* {
+  font-family: "Lucida Console", "Menlo", "Monaco", "Courier", monospace;
 }
