@@ -51,7 +51,7 @@ function doCommand() {
     }//comment in CST, returns no output
     default: {
       output.innerHTML = "Error 01: Invalid command";
-      output.className = "error";
+      output.className = "comment";
     }
   }
   prev.appendChild(output);
