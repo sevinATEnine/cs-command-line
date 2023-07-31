@@ -18,6 +18,7 @@ var previous = document.getElementById("previous");
 
 function doCommand(action) {
   //switch statement goes here later, but I don't have time to work on it now.
+
   command.value = "";
   const add = document.createElement("li");
   switch (action.toLowerCase()) {
@@ -37,9 +38,10 @@ const node = document.getElementById("command");
 node.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
       prev = document.getElementById("previous");
-      commandPrompt = document.getElementById("command");
+      command = document.getElementById("command");
       const add = document.createElement("li");
       add.textContent = ("CST/"+names[localStorage.getItem("userTerminalCST")]+"-->"+commandPrompt.value.toLowerCase());
+
       prev.appendChild(add);
       doCommand(commandPrompt.value);
     }
