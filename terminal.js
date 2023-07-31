@@ -25,6 +25,9 @@ function doCommand(action) {
     case "help":
       add.innerHTML = "help - outputs list of commands<br>crosh - opens chrosh (chrome-untrusted://crosh/)<br>telehack - opens telekack terminal (telehack.com)<br>bash - opens bash terminal (chrome-untrusted://terminal/)"
       break;
+    case "":
+      add.innerHTML="";
+      break;
     default:
       add.innerHTML = "Invalid command"
       break;
@@ -40,9 +43,8 @@ node.addEventListener("keyup", function(event) {
       prev = document.getElementById("previous");
       command = document.getElementById("command");
       const add = document.createElement("li");
-      add.textContent = ("CST/"+names[localStorage.getItem("userTerminalCST")]+"-->"+commandPrompt.value.toLowerCase());
-
+      add.textContent = ("CST/"+names[localStorage.getItem("userTerminalCST")]+"-->"+command.value.toLowerCase());
       prev.appendChild(add);
-      doCommand(commandPrompt.value);
+      doCommand(command.value);
     }
 });
