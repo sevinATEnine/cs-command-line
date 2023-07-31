@@ -58,6 +58,10 @@ function doCommand() {
     case "docs": {
       break;
     }
+    case "": {
+      output.className = "output";
+      break;
+    }
     default: {
       output.innerHTML = "Error 01: Invalid command";
       output.className = "error";
