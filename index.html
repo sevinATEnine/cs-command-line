@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
   <title>CST Login</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
   <style>
     input {
       width: 50%;
@@ -49,7 +50,7 @@
     }
   </style>
 </head>
-<body onload="readTextFile();">
+<body>
   <h1>Login to CST</h1>
   <input
     id="username"
@@ -116,8 +117,16 @@
     fetch('./bannedUsers.txt')
     .then(response => response.text())
     .then(text => console.log(text))
-
    
+    // ban-$|m0n=false,
+    // ban-c@d3N=false,
+    // ban-70DD=false,
+    // ban-$@wy3|-=false
+
+
+
+
+
 
     function signin() {
       password = document.getElementById('password');
