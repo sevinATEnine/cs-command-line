@@ -105,12 +105,26 @@ function doCommand() {
     }
     case "lockdown": {
       if (sessionStorage.getItem("userTerminalCST")=="root") {
-        window.alert("Lockdown mode activated.")
+        output.innerHTML = "Lockdown mode activated";
+        output.className = "important";
       }else {
-        window.alert("Failed to activate lockdown mode with non root user privelages.")
+        output.innerHTML = "Error 02: Failed to activate lockdown mode with non root user privelages";
+        output.className = "error";
       }
       break;
     }
+
+    case "release-lockdown": {
+      if (sessionStorage.getItem("userTerminalCST")=="root") {
+        output.innerHTML = "Lockdown mode deactivated";
+        output.className = "important";
+      }else {
+        output.innerHTML = "Error 02: Failed to deactivate lockdown mode with non root user privelages";
+        output.className = "error";
+      }
+      break;
+    }
+
     default: {
       output.innerHTML = "Error 01: Invalid command";
       output.className = "error";

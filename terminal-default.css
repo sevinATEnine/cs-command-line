@@ -10,11 +10,15 @@ body {
   background-color: black;
   color: green;
   font-size: medium;
+  caret-shape: block;
+  caret-color: grey;
 
 }
 
 input {
   background-color: black;
+  caret-shape: block;
+  caret-color: grey;
 }
 
 p,h1,h2,h3,h4,h5,h6,li,ul,input {
@@ -48,4 +52,6 @@ ul {
 
 * {
   font-family: "Lucida Console", "Menlo", "Monaco", "Courier", monospace;
+  caret-shape: block;
+  caret-color: grey;
 }
