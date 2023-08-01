@@ -28,7 +28,7 @@ function downloadResource(url, filename) {
 let names = {
   "c@d3N":"ThatGuyOverThere",
   "$|m0n":"TacoMan",
-  "70|)|)":"yes",
+  "70DD":"yes",
   "GUesT_1.0":"guest",
   "$@wy3|-":"Sawyer",
   "root":"ROOT",
@@ -56,7 +56,17 @@ function doCommand() {
   cmdSplit = command.value.split(" ");
   switch (cmdSplit[0]) {
     case "help": {
-      output.innerHTML = "<ul><li>help: Shows list of basic commands<li>docs: Shows all commands<li>credits: Shows credits<li>quit or exit: Logs out of CST<li>kill: Kills the terminal and forwards to an empty page<li>clear: CLears the terminal<li>admin: Enters the root user</ul>";
+      output.innerHTML = "<ul><li>ranks: Shows list of ranks<li>help: Shows list of basic commands<li>docs: Shows all commands<li>credits: Shows credits<li>quit or exit: Logs out of CST<li>kill: Kills the terminal and forwards to an empty page<li>clear: CLears the terminal<li>admin: Enters the root user</ul>";
+      output.className = "output";
+      break;
+    }
+    case "ranks": {
+      output.innerHTML = "<ul><li>0 | Root<li>1 | Owner<li>2 | Developer<li>3 | Admin<li>4 | Helper<li>5 | Icon<li>6 | Geek<li>7 | User<li>8 | Guest<li>9 | Banned</ul>";
+      output.className = "output";
+      break;
+    }
+    case "users": {
+      output.innerHTML = "<ul><li>c@d3N | Developer<li>$|m0n | Developer<li>70DD | Developer<li>GUesT_1.0 | Guest<li>root | Root<li>$@wy3|- | User<li>c2@r@ | User<li>m0m | User<li>d@d | User<li>";
       output.className = "output";
       break;
     }
