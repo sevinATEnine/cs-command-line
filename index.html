@@ -106,20 +106,17 @@
       '70DD': 'yesn\'t',
       '$@wy3|-': 'dogecoin',
       'GUesT_1.0': 'GU35T_D3V3L0P3R',
+      'root': '$3(r37',
+      'c2@r@': 'unicute',
+      'm0m': '0m0',
+      'd@d': 'ipv4',
       
     };
 
-    function readTextFile() {
-      var rawFile = new XMLHttpRequest();
-      rawFile.open("GET", "./bannedUser.txt", true);
-      rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4) {
-          var allText = rawFile.responseText;
-          document.getElementById("banText").innerHTML = allText;
-        }
-      }
-      rawFile.send();
-    }
+    fetch('./bannedUsers.txt')
+    .then(response => response.text())
+    .then(text => console.log(text))
+  // outputs the content of the text file
 
     function signin() {
       password = document.getElementById('password');

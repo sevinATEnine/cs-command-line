@@ -5,6 +5,9 @@ let names = {
   "GUesT_1.0":"guest",
   "$@wy3|-":"Sawyer",
   "root":"ROOT",
+  'c2@r@': 'Claire',
+  'm0m': 'Wirz\'s Mom',
+  'd@d': 'Wirz\'s Dad',
 }//basic name definitions
 
 var permitted = window.sessionStorage.getItem('permittedTerminalCST');
@@ -71,9 +74,9 @@ function doCommand() {
     }
     case "lockdown": {
       if (sessionStorage.getItem("userTerminalCST")=="root") {
-        window.alert("Lockdown mode activating")
+        window.alert("Lockdown mode activated.")
       }else {
-        window.alert("Failed lockdown mode activation")
+        window.alert("Failed to activate lockdown mode with non root user privelages.")
       }
       break;
     }
