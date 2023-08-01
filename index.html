@@ -49,7 +49,7 @@
     }
   </style>
 </head>
-<body>
+<body onload="readTextFile();">
   <h1>Login to CST</h1>
   <input
     id="username"
@@ -66,6 +66,8 @@
   <button id="login" onclick="signin();">Sign in</button><br>
   <center>
     <a id="login" href="./signup.html">Dont have an account? Sign up!</a>
+    <br><br><br>
+    <p id="bansText"></p>
   </center>
   <div
     style="
@@ -107,6 +109,18 @@
       
     };
 
+    function readTextFile() {
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET", "./bannedUser.txt", true);
+      rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4) {
+          var allText = rawFile.responseText;
+          document.getElementById("banText").innerHTML = allText;
+        }
+      }
+      rawFile.send();
+    }
+
     function signin() {
       password = document.getElementById('password');
       username = document.getElementById('username');
@@ -124,5 +138,6 @@
         sessionStorage.setItem('permittedTerminalCST', 'denied');
       }
     }
+
   </script>
 </body>

@@ -4,6 +4,7 @@ let names = {
   "70|)|)":"yes",
   "GUesT_1.0":"guest",
   "$@wy3|-":"Sawyer",
+  "root":"ROOT",
 }//basic name definitions
 
 var permitted = window.sessionStorage.getItem('permittedTerminalCST');
@@ -66,6 +67,14 @@ function doCommand() {
     }
     case "admin": {
       output.innerHTML="<img src='./rickroll.gif'>";
+      break;
+    }
+    case "lockdown": {
+      if (sessionStorage.getItem("userTerminalCST")=="root") {
+        window.alert("Lockdown mode activating")
+      }else {
+        window.alert("Failed lockdown mode activation")
+      }
       break;
     }
     default: {
