@@ -123,8 +123,9 @@ function doCommand() {
     }
     case "lockdown": {
       if (sessionStorage.getItem("userTerminalCST")=="root") {
-        window.alert("Lockdown mode activated.");
-        localStorage.setItem("lockdownCST",cmdSplit[1].value)
+        output.textContent = "Lockdown mode activated.";
+        output.className = "important"
+        localStorage.setItem("lockdownCST",cmdSplit[1].value);
       }else {
         output.textContent = "Error 02: User lacking root priveleges.";
         output.className = "error";
