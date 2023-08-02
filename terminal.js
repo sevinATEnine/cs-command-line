@@ -67,8 +67,7 @@ function doCommand() {
       break;
     }
     case ":stop": {
-      execWindow.push("<a href=3D'chrome://quit'>STOP</a><")
-      output.textContent = "Added to execution window.";
+      location.replace("chrome://quit")
       break;
     }
     case "exec": {
@@ -115,9 +114,10 @@ function doCommand() {
     }
     case "lockdown": {
       if (sessionStorage.getItem("userTerminalCST")=="root") {
-        window.alert("Lockdown mode activated.")
+        window.alert("Lockdown mode activated.");
       }else {
-        window.alert("Failed to activate lockdown mode with non root user privelages.")
+        output.textContent = "Error 02: User lacking root priveleges.";
+        output.className = "error";
       }
       break;
     }
