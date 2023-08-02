@@ -133,7 +133,14 @@ function doCommand() {
       break;
     }
     case "theme": {
-      alert("Hello");
+      if (document.body.style.backgroundColor == "black") {
+        document.getElementById("body").style.backgroundColor = "white";
+        command.style.backgroundColor = "white";
+      }
+      else {
+        document.getElementById("body").style.backgroundColor = "black";
+        command.style.backgroundColor = "black";
+      }
       break;
     }
     default: {
