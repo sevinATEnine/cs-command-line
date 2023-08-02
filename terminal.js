@@ -42,7 +42,16 @@ if (permitted != 'affirmed') {
   document.getElementById('body').style.display = 'none';
   alert("Sorry, but you do not have permission to use the cst terminal. Please use the sign-in on our home page to gain access.");
   // location.replace("./index.html");
-}else {
+}
+else if (localStorage.getItem("lockdownCST") != null && localStorage.getItem("lockdownCST") != undefined) {
+  if(prompt("Enter lockdown shuttoff key:"==localStorage.getItem("lockdownCST"))) {
+    alert("Access granted. Reload this page.")
+  }else {
+    alert("Access denied.");
+    location.href = "about:blank";
+  }
+}
+else {
   document.getElementById("prompt").textContent = "CST/"+names[sessionStorage.getItem("userTerminalCST")]+"-->";
 }//Access granted? Time to find out!
 
@@ -115,6 +124,7 @@ function doCommand() {
     case "lockdown": {
       if (sessionStorage.getItem("userTerminalCST")=="root") {
         window.alert("Lockdown mode activated.");
+        localStorage.setItem("lockdownCST",cmdSplit[1].value)
       }else {
         output.textContent = "Error 02: User lacking root priveleges.";
         output.className = "error";
