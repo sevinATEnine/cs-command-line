@@ -119,7 +119,7 @@ function doCommand() {
     }
     case "download": {
       downloadResource(cmdSplit[1]);
-      break;
+      break; 
     }
     case "lockdown": {
       if (sessionStorage.getItem("userTerminalCST")=="root") {
