@@ -132,7 +132,7 @@ function doCommand() {
       }
       break;
     }
-    case "theme" : {
+    case "theme": {
       if(document.getElementById("theme").href = "") {
         document.getElementById("theme").href = "terminal-light.css";
       }
