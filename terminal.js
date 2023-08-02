@@ -133,12 +133,7 @@ function doCommand() {
       break;
     }
     case "theme": {
-      if(document.getElementById("theme").href = "") {
-        document.getElementById("theme").href = "terminal-light.css";
-      }
-      else {
-        document.getElemntById("theme").href = "";
-      }
+      alert("Hello");
       break;
     }
     default: {
