@@ -132,6 +132,15 @@ function doCommand() {
       }
       break;
     }
+    case "theme" : {
+      if(document.getElementById("theme").href = "") {
+        document.getElementById("theme").href = "terminal-light.css";
+      }
+      else {
+        document.getElemntById("theme").href = "";
+      }
+      break;
+    }
     default: {
       output.innerHTML = "Error 01: Invalid command";
       output.className = "error";
